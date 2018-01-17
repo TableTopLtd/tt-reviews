@@ -1,5 +1,11 @@
 # TableTop reviews microservice
 [![Build Status](https://travis-ci.org/TableTopLtd/tt-reviews.svg?branch=master)](https://travis-ci.org/TableTopLtd/tt-reviews)
+## Prerequisites
+
+```bash
+docker run -d --name tt-reviews-db -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=review -p 5436:5432 postgres:latest
+```
+
 ```
 
 ## When developing

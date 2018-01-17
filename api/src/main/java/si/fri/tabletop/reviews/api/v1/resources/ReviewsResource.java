@@ -48,7 +48,7 @@ public class ReviewsResource {
 
     @POST
     public Response addReview(Review review) {
-        review = reviewBean.addReview(review);
+        review = reviewBean.createOrder(review);
 
         if (review.getId() != null) {
             return Response.status(Response.Status.CREATED).entity(review).build();

@@ -61,4 +61,32 @@ public class ReviewsBean {
 
         return review;
     }
+
+    public Review createOrder(Review review) {
+
+        try {
+            beginTx();
+            em.persist(review);
+            commitTx();
+        } catch (Exception e) {
+            rollbackTx();
+        }
+
+        return review;
+    }
+
+    private void beginTx() {
+        if (!em.getTransaction().isActive())
+            em.getTransaction().begin();
+    }
+
+    private void commitTx() {
+        if (em.getTransaction().isActive())
+            em.getTransaction().commit();
+    }
+
+    private void rollbackTx() {
+        if (em.getTransaction().isActive())
+            em.getTransaction().rollback();
+    }
 }
